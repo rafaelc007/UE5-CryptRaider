@@ -26,8 +26,13 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UFUNCTION(BluePrintCallable)
+	void SetShouldMove(bool shouldMove);
+
+	UFUNCTION(BluePrintCallable)
+	void SetMoveOffset(FVector moveOffset);
+
 private:
-	UPROPERTY(EditAnywhere)
 	FVector moveOffset;
 
 	UPROPERTY(EditAnywhere)
@@ -39,7 +44,7 @@ private:
 	FVector startLocation;
 	AActor * uOwner;
 
-	void MoveOwner(float DeltaTime);
+	void MoveOwner(FVector targetLocation, float DeltaTime);
 
 		
 };
